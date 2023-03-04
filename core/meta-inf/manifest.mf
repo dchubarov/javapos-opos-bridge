@@ -1,0 +1,3 @@
+Specification-Version: 1.0
+Specification-Vendor: Anker-East Ltd.
+Specification-Title: JavaPos to OPOS Bridge Driver

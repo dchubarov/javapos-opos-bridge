@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JposEntries PUBLIC "-//JavaPOS//DTD//EN"
+                             "jpos/res/jcl.dtd">
+<JposEntries>
+<!--Saved by JavaPOS jpos.config/loader (JCL) version 2.1.0-RC3 on 10/26/04 8:17 AM-->
+
+    <JposEntry logicalName="ATOL">
+        <creation factoryClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterFactory" serviceClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterService" />
+        <vendor name="Anker-East Ltd." url="http://www.anker-east.ru" />
+        <jpos category="FiscalPrinter" version="1.12" />
+        <product name="OposBridge" description="OposBridge" />
+        <prop name="OposDevice" type="String" value="ATOLFptr.1" />
+        <prop name="ServiceVersion" type="String" value="1011000" />
+    </JposEntry>
+
+    <JposEntry logicalName="PRIM">
+        <creation factoryClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterFactory" serviceClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterService" />
+        <vendor name="Anker-East Ltd." url="http://www.anker-east.ru" />
+        <jpos category="FiscalPrinter" version="1.12" />
+        <product name="OPOS Fiscal Printer" description="JavaPOS bridge for OPOS fiscal printer." url="" />
+        <prop name="OposDevice" type="String" value="PRIM" />
+        <prop name="ServiceVersion" type="String" value="1011000" />
+    </JposEntry>
+
+    <JposEntry logicalName="SHTRIH">
+        <creation factoryClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterFactory" serviceClass="ru.anker_east.hw.oposbridge.fiscal.OposFiscalPrinterService" />
+        <vendor name="Anker-East Ltd." url="http://www.anker-east.ru" />
+        <jpos category="FiscalPrinter" version="1.12" />
+        <product name="OPOS Fiscal Printer" description="JavaPOS bridge for OPOS fiscal printer." url="" />
+        <prop name="OposDevice" type="String" value="Shtrih-M-OPOS-1" />
+        <prop name="ServiceVersion" type="String" value="1011000" />
+    </JposEntry>
+</JposEntries>

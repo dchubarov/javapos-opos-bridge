@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="JposOposBridge" default="jar">
+
+  <property name="debug" value="on" />
+  <property name="bin.dir" location="bin" />
+  <property name="build.dir" location="build" />
+  <property name="core.version" value="0.7" />
+  <property name="core.src.dir" location="core" />
+  <property name="core.base.name" value="OposBridge" />
+  <property name="lib.dir" location="z:/java/lib" />
+  <property name="lib.jpos.path" value="${lib.dir}/jpos1122.jar" />
+
+  <!-- ============================================================== -->
+  <!--  Build                                                         -->
+  <!-- ============================================================== -->  
+  <target name="build-core">
+    <mkdir dir="${build.dir}/core" />
+    <javac 
+        srcdir="${core.src.dir}/java" 
+        destdir="${build.dir}/core" 
+        debug="${debug}">
+      <classpath>
+        <pathelement location="${lib.jpos.path}" />
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- ============================================================== -->
+  <!--  Distribution                                                  -->
+  <!-- ============================================================== -->  
+  <target name="jar" depends="build-core">
+    <jar 
+        basedir="${build.dir}/core" 
+        destfile="${bin.dir}/${core.base.name}.jar" 
+        manifest="${core.src.dir}/meta-inf/manifest.mf">
+      <manifest>
+        <attribute name="Implementation-Version" value="${core.version}" />
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="dist-binary-zip" depends="jar">
+    <zip destfile="${core.base.name}-${core.version}.zip">
+      <fileset dir="${bin.dir}" includes="*.dll,*.jar" />
+    </zip>
+  </target>
+
+  <target name="dist-src-zip" depends="jar">
+    <zip destfile="${core.base.name}-${core.version}-src.zip">
+      <fileset dir="." excludes="build/**,CVS/**,Debug/**,Release/**,**/*.ncb,**/*.exp,**/*.lib,**/*.pdb" />
+    </zip>
+  </target>
+
+  <!-- ============================================================== -->
+  <!--  Cleanup                                                       -->
+  <!-- ============================================================== -->  
+  <target name="clean">
+    <delete dir="${build.dir}" />
+    <delete dir="${core.src.dir}/x86/Debug" />
+    <delete dir="${core.src.dir}/x86/Release" />
+    <delete file="${bin.dir}/OposBridge.jar" />
+    <delete>
+      <fileset dir="${bin.dir}" includes="*.exp,*.lib,*.pdb" />
+    </delete>
+  </target>
+
+
+</project>
